@@ -8,10 +8,9 @@ bool properInput(string str){
         if(!isalpha(ch) && !isspace(ch)){
              return false;
         }
-        else{
-            return true;
-        }
     }
+      return true;
+
 }
 
 
@@ -24,8 +23,9 @@ string toLowercase(string str){
 
 
 void Medication(){
-     cout << "Is Medication Needed \n";
-    string isMedicationneeded;
+     string isMedicationneeded;
+     cout << "Is Medication Needed? \n";
+     cin.ignore(); // getline takes the space into account::::
     getline(cin,isMedicationneeded);
   
      
@@ -54,7 +54,8 @@ void DoctorAvailablity(){
        cout << "Does the patient need follow up \n";
        cin >> needcheckup;
        
-    if(!properInput(needcheckup)){
+
+if(!properInput(needcheckup)){
      cout << "Enter proper input y or n \n";
     }
     else if(toLowercase(needcheckup)=="yes" || toLowercase(needcheckup)=="y"){
@@ -64,6 +65,7 @@ void DoctorAvailablity(){
     else{
        Medication();
     }
+ 
 }
     else{
       cout << "Waiting for Doctor \n";
