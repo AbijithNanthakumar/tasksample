@@ -10,12 +10,16 @@ string toLowercase(string str){
    return str;
 }
 
+void bringUmberlla(){
+    cout << "Bring Umberlla \n";
+}
+
 void checkUmberlla(){
     int count = 0;
     bool isfound = false;
       string isumberllafound;
     while(count <= 1000){
-      cout << "Is umberlla found";
+      cout << "Is umberlla found \n";
       getline(cin,isumberllafound);
 
       if(toLowercase(isumberllafound) == "yes" || toLowercase(isumberllafound) == "y")
@@ -29,17 +33,15 @@ void checkUmberlla(){
       }
     }
   if(isfound == false){
-     cout << "Umberlla Not found";
+     cout << "Umberlla Not found, Buy one \n";
   }
     
 }
 
-void bringUmberlla(){
-    cout << "Bring Umberlla";
-}
 
 int main(){
     string israining;
+    cout << "Is there rain outside? \n";
     getline(cin, israining);
 
     string lower = toLowercase(israining);
@@ -48,11 +50,8 @@ int main(){
         checkUmberlla();
     }
     else{
-       cout << "There is no rain, don't bring umberlla";
+       cout << "There is no rain, don't bring umberlla \n";
        return 0;
     }
-
-    
-    
 }
 
