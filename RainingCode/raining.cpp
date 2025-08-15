@@ -6,21 +6,28 @@ string toLowercase(string str){
    for(char &ch : str){
       ch = tolower(ch);
    }
-
-   cout << str;
-
    return str;
+}
+
+void chechUmberlla(){
+     string isumberllaf
 }
 
 int main(){
     string israining;
-    cin >> israining;
     getline(cin, israining);
 
     string lower = toLowercase(israining);
-    cout << lower;
-
+    
+    if(lower == "yes"){
+        chechUmberlla();
+    }
+    else{
+       cout << "There is no rain, don't bring umberlla";
+       return 0;
+    }
 
     
     
 }
+
