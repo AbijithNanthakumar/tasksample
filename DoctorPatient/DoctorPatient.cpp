@@ -24,41 +24,41 @@ string toLowercase(string str){
 
 
 void Medication(){
-     cout << "Is Medication Neede";
+     cout << "Is Medication Needed \n";
     string isMedicationneeded;
     getline(cin,isMedicationneeded);
   
      
     if(!properInput(isMedicationneeded)){
-     cout << "Enter proper input y or n";
+     cout << "Enter proper input y or n \n";
     }
     if(toLowercase(isMedicationneeded)=="yes" || toLowercase(isMedicationneeded)=="y"){
-       cout << "Medicaines Prescribed to patient";
+       cout << "Medicaines Prescribed to patient \n";
     }
     
 }
 
 void DoctorAvailablity(){
-     cout << "Is Doctor available?";
+     cout << "Is Doctor available? \n";
     string isDoctorAvailable;
     getline(cin,isDoctorAvailable);
   
     
     if(!properInput(isDoctorAvailable)){
-     cout << "Enter proper input y or n";
+     cout << "Enter proper input y or n \n";
     }
     else if(toLowercase(isDoctorAvailable)=="yes" || toLowercase(isDoctorAvailable)=="y"){
-       cout << "Doctor Available";
+       cout << "Doctor Available \n";
     
        string needcheckup;
-       cout << "Does the patient need follow up";
+       cout << "Does the patient need follow up \n";
        cin >> needcheckup;
        
     if(!properInput(needcheckup)){
-     cout << "Enter proper input y or n";
+     cout << "Enter proper input y or n \n";
     }
-    else if(toLowercase(isDoctorAvailable)=="yes" || toLowercase(isDoctorAvailable)=="y"){
-        cout<< "Appoinmet made";
+    else if(toLowercase(needcheckup)=="yes" || toLowercase(needcheckup)=="y"){
+        cout<< "Appoinmet made \n";
         Medication();
     }
     else{
@@ -66,46 +66,46 @@ void DoctorAvailablity(){
     }
 }
     else{
-      cout << "Waiting for Doctor";
+      cout << "Waiting for Doctor \n";
        DoctorAvailablity();
     }
 }
 
 void NurseAvailability(){
-    cout << "Is nurse available?";
+    cout << "Is nurse available? \n";
     string isNurseAvailable;
     getline(cin,isNurseAvailable);
   
      
     if(!properInput(isNurseAvailable)){
-     cout << "Enter proper input y or n";
+     cout << "Enter proper input y or n \n";
     }
    else if(toLowercase(isNurseAvailable)=="yes" || toLowercase(isNurseAvailable)=="y"){
-       cout << "Nurse Available";
-       cout << "checking for health issues";
+       cout << "Nurse Available \n";
+       cout << "checking for health issues \n";
        DoctorAvailablity();
     }
     else{
-      cout << "Waiting for nurse";
+      cout << "Waiting for nurse \n";
        NurseAvailability();
     }
 }
 
 void Registeration(){
 
-    cout << "Is the patient have registeration or appoinment";
+    cout << "Is the patient have registeration or appoinment \n";
     string isregistered;
     getline(cin,isregistered);
 
     if(!properInput(isregistered)){
-     cout << "Enter proper input y or n";
+     cout << "Enter proper input y or n \n";
     }
 
     else if(toLowercase(isregistered)=="yes" || toLowercase(isregistered)=="y"){
        return NurseAvailability();
     }
     else{
-      cout << "Patient not registered";
+      cout << "Patient not registered \n";
        Registeration();
     }
     
@@ -113,12 +113,12 @@ void Registeration(){
 }
 void process(){
     string isemergency;
-    cout << "Is that a emeergency ?";
+    cout << "Is that a emeergency ? \n";
     getline(cin,isemergency);
 
     
     if(!properInput(isemergency)){
-     cout << "Enter proper input y or n";
+     cout << "Enter proper input y or n \n";
     }
    else if(toLowercase(isemergency) == "yes" || toLowercase(isemergency) == "y"){
         DoctorAvailablity();
@@ -130,7 +130,7 @@ void process(){
 }
 
 int main(){
-    cout << "Patient Arrives";
+    cout << "Patient Arrives \n";
     
     process();
 }
