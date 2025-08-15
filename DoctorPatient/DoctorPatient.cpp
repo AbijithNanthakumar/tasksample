@@ -135,4 +135,8 @@ int main(){
     cout << "Patient Arrives \n";
     
     process();
+
+    cout << "Patient Leaves \n";
+
+    
 }
