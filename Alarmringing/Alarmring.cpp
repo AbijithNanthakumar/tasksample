@@ -9,7 +9,7 @@ bool isfomat(string str)
 {
     for (char ch : str)
     {
-        if (!isalpha(ch) && !isalpha(ch))
+        if (!isalpha(ch) && !isspace(ch))
         {
             return false;
         }

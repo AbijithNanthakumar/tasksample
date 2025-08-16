@@ -11,7 +11,7 @@ bool isformat(string str)
     {
         if (!isalpha(ch) && !isspace(ch))
         {
-            return true;
+            return false;
         }
     }
     return true;
@@ -29,34 +29,49 @@ string toLowercase(string str)
 }
 
 void Directions(){
-    cout << "Look Left";
-    string okleft;
-    cin >> okleft;
+    cout << "Look Left \n";
+    cout << "Is car approaching in left \n";
+    string crossingleft;
+    getline(cin,crossingleft);
+    
 
-       if (!isformat(okleft))
+       if (!isformat(crossingleft))
         {
-            cout << "Enter the proper input y or n";
+            cout << "Enter the proper input y or n \n";
         }
-        else if (toLowercase(okleft) == "yes" || toLowercase(okleft) == "y")
+       if (toLowercase(crossingleft) == "yes" || toLowercase(crossingleft) == "y")
         {
+
             Directions();
         }
         else{
-            cout << "Look right";
+            cout << "Look right \n";
+            cout << "Is car approaching in right \n";
+            string crossright;
+                getline(cin,crossright);
+
+
+        if (!isformat(crossright))
+        {
+            cout << "Enter the proper input y or n \n";
+        }
+        if (toLowercase(crossright) == "yes" || toLowercase(crossright) == "y")
+        {
+            Directions();
+        }
+        
         }
 
 }
 
 void Color(){
-    cout << "what is the color";
+    cout << "what is the color \n";
          string color;
-         cin >> color;
+             getline(cin,color);
 
-        if (!isformat(color))
-        {
-            cout << "Enter the proper input y or n";
-        }
-        else if (toLowercase(color) == "red" || toLowercase(color) == "r")
+
+        
+         if (toLowercase(color) == "red" || toLowercase(color) == "r")
         {
             Directions();
         }
@@ -68,13 +83,14 @@ void Color(){
 }
 void TrafficLight(){
     string trafficlight;
-    cout << "Is traffic light present ?";
-    cin >> trafficlight;
+    cout << "Is traffic light present ? \n";
+     getline(cin,trafficlight);
+
 
     if(!isformat(trafficlight)){
-        cout << "Enter proper input y or n";
+        cout << "Enter proper input y or n \n";
     }
-    else if(toLowercase(trafficlight)=="yes" ||  toLowercase(trafficlight)=="y"){
+     if(toLowercase(trafficlight)=="yes" ||  toLowercase(trafficlight)=="y"){
          Color();
     }
     else{
@@ -86,50 +102,62 @@ int main()
     while (true)
     {
         string isfootbridge;
-        cout << "Is footbridge avaible ?";
-        cin >> isfootbridge;
+        cout << "Is footbridge avaible ? \n";
+           getline(cin,isfootbridge);
+
 
         if (!isformat(isfootbridge))
         {
-            cout << "Enter the proper input y or n";
+            cout << "Enter the proper input y or n \n";
+            continue;
         }
-        else if (toLowercase(isfootbridge) == "yes" || toLowercase(isfootbridge) == "y")
+         if (toLowercase(isfootbridge) == "yes" || toLowercase(isfootbridge) == "y")
         {
-            cout << "Use footbridge";
+            cout << "Use footbridge \n";
             return 0;
         }
         else
         {
-            string istunnel;
-            cout << "Is tunnel avaible ?";
-            cin >> istunnel;
+            while(true){
+               string istunnel;
+            cout << "Is tunnel avaible ? \n";
+                getline(cin,istunnel);
+
 
             if (!isformat(istunnel))
             {
-                cout << "Enter the proper input y or n";
+                cout << "Enter the proper input y or n \n";
+                continue;
             }
-            else if (toLowercase(istunnel) == "yes" || toLowercase(istunnel) == "y")
+             if (toLowercase(istunnel) == "yes" || toLowercase(istunnel) == "y")
             {
-                cout << "Use Crossing";
+                cout << "Use Tunnel \n";
                 return 0;
             }
             else{
               
             string iscrossing;
-            cout << "Is crossing avaible ?";
-            cin >> iscrossing;
+            cout << "Is crossing avaible ? \n";
+                getline(cin,iscrossing);
+
 
             if (!isformat(iscrossing))
             {
-                cout << "Enter the proper input y or n";
+                cout << "Enter the proper input y or n \n";
             }
             if(toLowercase(iscrossing) == "yes" || toLowercase(iscrossing) == "y")
             {
-                cout << "Use crossing";
+                cout << "Use crossing \n";
                 TrafficLight();
+
+                cout << "Cross Traffic \n";
+                return 1;
             }
               
             }
+            }
+            
         }
+        
     }
 }

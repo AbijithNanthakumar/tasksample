@@ -101,6 +101,7 @@ void Registeration(){
 
     if(!properInput(isregistered)){
      cout << "Enter proper input y or n \n";
+     Registeration();
     }
 
     else if(toLowercase(isregistered)=="yes" || toLowercase(isregistered)=="y"){
