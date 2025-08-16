@@ -1,7 +1,9 @@
 #include <iostream>
 #include <string>
-#include <cctype>
+#include <cctype>  // for toLowercase use
+#include <thread> // for delay use 
 using namespace std;
+
 
 bool isfomat(string str)
 {
@@ -33,7 +35,8 @@ void statement()
 
 void snooze()
 {
-    
+    cout << "...Alarm snoozed....";
+   std::this_thread::sleep_for(std::chrono::seconds(5)); 
 }
 
 int main()
