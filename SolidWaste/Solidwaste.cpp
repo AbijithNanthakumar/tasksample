@@ -12,6 +12,7 @@ bool isFormat(string str){
     return true;
 }
 
+// Input:::: getting :::: block 
 bool yesOrNo(){
     string input;
     getline(cin,input );
@@ -19,7 +20,14 @@ bool yesOrNo(){
     bool flag;
 
     if(!isFormat(input)){
-        
+       cout << "Enter the proper input yes or no";
+       return false;        
+    }
+    if(toLowercase(input) == "yes" || toLowercase(input) == "y"){
+        return true;
+    }
+    else{
+        return false;
     }
 }
 
@@ -45,20 +53,25 @@ void HighEnergy(){
 
 void WasteProcess(){
     cout << "Is the waste organic? \n";
-    string isorganic;
-    getline(cin,isorganic);
+    yesOrNo();
 
-    if(!isFormat(isorganic)){
-       cout << "Enter the proper input y or n \n";
+    if(yesOrNo){
+        cout << "This is an organic waste? \n";
     }
-    if(toLowercase(isorganic)=="yes" || toLowercase(isorganic) == "y"){
-        cout << "This is Organic. Is this High enrgy waste? \n";
+    // string isorganic;
+    // getline(cin,isorganic);
 
-        HighEnergy();
-    }
-    else{
+    // if(!isFormat(isorganic)){
+    //    cout << "Enter the proper input y or n \n";
+    // }
+    // if(toLowercase(isorganic)=="yes" || toLowercase(isorganic) == "y"){
+    //     cout << "This is Organic. Is this High enrgy waste? \n";
+
+    //     HighEnergy();
+    // }
+    // else{
         
-    }
+    // }
 
    
 }
