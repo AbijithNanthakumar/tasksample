@@ -3,8 +3,20 @@
 #include <string>
 using namespace std;
 
-
-
+bool isNewIssue();
+void testIssue();
+bool simulateIssue();
+void getErrorDetails( string &desc) ;
+void writeToCSV( const string &desc);
+void errorAnalysis();
+void solveIssue();
+bool issueFixed();
+void confirmIssueFixed();
+void contactCustomerForInfo();
+bool isSalesIssue();
+void redirectSales();
+bool isTechnicalIssue();
+void redirectTechnical();
 
 // Step 3: Handle enquiries
 bool enquiries() {
@@ -40,7 +52,14 @@ void unknownIssue() {
 
 
 void feedback() {
-    cout << "Collecting feedback from customer...\n";
+     cout << "Collecting feedback from customer...\n";
+    char survey;
+    cin >> survey;
+    
+    if(tolower(survey)=='y'){
+        cout << "Survey from the customer successfull";
+    }
+   
 }
 
 // Step 4: Known issues handling
@@ -105,7 +124,36 @@ bool simulateIssue() {
     return (ans == 'y' || ans == 'Y');
 }
 
+void contactCustomerForInfo() {
+    cout << "Contacting customer for more information...\n";
+}
 
+
+void getErrorDetails( string &desc) {
+    
+    cout << "Enter Error Description: ";
+    getline(cin, desc);
+}
+
+// Save to CSV
+void writeToCSV( const string &desc) {
+    ofstream file("error.csv", ios::app);
+    if (!file) {
+        cout << "Error opening file!" << endl;
+        return;
+    }
+    file  << desc << "\n";
+    file.close();
+    cout << " Error details saved to error.csv\n";
+}
+
+void errorAnalysis() {
+    cout << "Performing error analysis...\n";
+}
+
+void solveIssue() {
+    cout << "Solving the issue...\n";
+}
 
 bool issueFixed() {
     char ans;
@@ -128,12 +176,5 @@ int main() {
         confirmIssueFixed();
     }
 
-    
-    
-
-    // Step 4: New issue workflow
-    
-
-    cout << "=== System Finished ===\n";
     return 0;
 }
