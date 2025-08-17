@@ -36,7 +36,6 @@ bool Verificationprocess()
         if (funds != 'y' && funds != 'Y')
         {
             cout << "Insufficient Funds. Transaction Failed.\n";
-            flag = false;
             continue;
         }
 
@@ -46,7 +45,6 @@ bool Verificationprocess()
         if (bankVerify != 'y' && bankVerify != 'Y')
         {
             cout << "Bank Rejected Transaction.\n";
-            flag = false;
             continue;
         }
 
@@ -56,7 +54,6 @@ bool Verificationprocess()
         if (accValid != 'y' && accValid != 'Y')
         {
             cout << "Account Invalid. Transaction Failed.\n";
-            flag = false;
             continue;
         }
 
