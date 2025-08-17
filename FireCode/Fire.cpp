@@ -10,58 +10,40 @@ bool isFormat(char ch){
 }
 
 
-void process(){
+#include <iostream>
+using namespace std;
 
-}
+// Function declaration::::::
+void process();
+void Inside();
 
-
-void smokedetector(){
-    cout << "The smoke Detector detects the fire in the building" << endl;
-    cout << "The smoke detector triggers alarm" << endl;
-
-    process();
-}
-
-
-void firstmove(){
-   cout << "Is the fire in the building.? (y or n)" << endl;
-    
-   char ch;
-   cin >> ch;
-
-   if(!isFormat(ch)){
-       cout << "Enter the proper intput y or n" << endl; 
-   }
-
-}
-
-
-
-int main(){
-    cout << "How the fire is seen ?" << endl;
-    cout << "Choose 1 : You see the smoke ?" << endl;
-    cout << "Choose 2 : Someone saw the smoke?" << endl;
-    cout << "Choose 3 : smoke detector detects" << endl;
+int main() {
+    cout << "Choose how fire is detected:\n";
+    cout << "1. You see fire/smoke\n";
+    cout << "2. Someone saw the fire\n";
+    cout << "3. Smoke detector detects\n";
+    cout << "Enter the situation 1 or 2 or 3 ";
 
     int choice;
     cin >> choice;
 
-    switch(choice){
-        
-        case 1: 
-            firstmove();
-             break;
+    if (choice == 1 || choice == 2) {
+        cout << "Are you in the building? (yes=1 / no=0): ";
+        int inBuilding;
+        cin >> inBuilding;
 
-        case 2: 
-            firstmove();
-             break;
-
-        case 3:
-            smokedetector();
-            break;
-            
-        default:
-            cout << "No such option exists." << endl;
-            break;
+        if (inBuilding == 1) {
+            cout << "Push the fire alarm!\n";
+            process();
+        } else {
+            cout << "Contact the fire department immediately!\n";
+        }
+    } 
+    else if (choice == 3) {
+        cout << "Smoke detector triggers alarm.\n";
+        process();
     }
+    return 0;
 }
+
+
