@@ -4,6 +4,7 @@
 using namespace std;
 
 void check();
+void Powerprocess();
 
 bool isFormat(string str)
 {
@@ -64,7 +65,8 @@ void Plugged(){
         }
         else
         {
-            cout << "Plug power to the wall. \n"
+            cout << "Plug power to the wall. \n";
+            check();
         }
 }
 
@@ -114,6 +116,5 @@ void check()
 
 int main()
 {
-
     check();
 }
