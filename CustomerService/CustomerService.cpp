@@ -62,7 +62,7 @@ void feedback() {
    
 }
 
-// Step 4: Known issues handling
+
 void knownIssues() {
     if (isSalesIssue()) {
         redirectSales();
@@ -77,7 +77,6 @@ void confirmIssueFixed() {
     cout << "Confirming issue fixed with customer...\n";
 }
 
-// Step 5: Routing issues
 bool isSalesIssue() {
     char ans;
     cout << "Is this a sales issue? (y/n): ";
@@ -103,7 +102,7 @@ void redirectTechnical() {
 }
 
 
-// Step 6: New issue processing
+
 bool isNewIssue() {
     char ans;
     cout << "Is this a new issue? (y/n): ";
@@ -135,7 +134,7 @@ void getErrorDetails( string &desc) {
     getline(cin, desc);
 }
 
-// Save to CSV
+// csv writting
 void writeToCSV( const string &desc) {
     ofstream file("error.csv", ios::app);
     if (!file) {
