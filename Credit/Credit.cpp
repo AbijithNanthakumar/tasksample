@@ -3,45 +3,84 @@
 #include <string>
 using namespace std;
 
-bool Verificationprocess() {
-    char cardValid;
-    cout << "Is Card Valid? (y/n): ";
-    cin >> cardValid;
-    if(cardValid != 'y' && cardValid != 'Y') {
-        cout << "Card Invalid. Transaction Failed.\n";
-        return false;
-    }
+void endProcess(const string &cardNumber, const string &status)
+{
+    cout << "Transaction Status: " << status << endl;
+    cout << "Statement will be given.\n";
 
-    char funds;
-    cout << "Are Funds Available? (y/n): ";
-    cin >> funds;
-    if(funds != 'y' && funds != 'Y') {
-        cout << "Insufficient Funds. Transaction Failed.\n";
-        return false;
+    ofstream file("statements.csv", ios::app);
+    if (file.is_open())
+    {
+        file << cardNumber << "," << status << "\n";
+        file.close();
     }
-
-    char bankVerify;
-    cout << "Payment Verified by Bank? (y/n): ";
-    cin >> bankVerify;
-    if(bankVerify != 'y' && bankVerify != 'Y') {
-        cout << "Bank Rejected Transaction.\n";
-        return false;
-    }
-
-    char accValid;
-    cout << "Is Account Valid? (y/n): ";
-    cin >> accValid;
-    if(accValid != 'y' && accValid != 'Y') {
-        cout << "Account Invalid. Transaction Failed.\n";
-        return false;
-    }
-
-    cout << "Verification Successful.\n";
-    return true;
 }
 
-int main(){
-    cout << "Order placed By the client \n";
+bool Verificationprocess()
+{
 
+    while (true)
+    {
+        char cardValid;
+        cout << "Is Card Valid? (y/n): ";
+        cin >> cardValid;
+        if (cardValid != 'y' && cardValid != 'Y')
+        {
+            cout << "Card Invalid. Transaction Failed.\n";
+            continue;
+        }
+
+        char funds;
+        cout << "Are Funds Available? (y/n): ";
+        cin >> funds;
+        if (funds != 'y' && funds != 'Y')
+        {
+            cout << "Insufficient Funds. Transaction Failed.\n";
+            flag = false;
+            continue;
+        }
+
+        char bankVerify;
+        cout << "Payment Verified by Bank? (y/n): ";
+        cin >> bankVerify;
+        if (bankVerify != 'y' && bankVerify != 'Y')
+        {
+            cout << "Bank Rejected Transaction.\n";
+            flag = false;
+            continue;
+        }
+
+        char accValid;
+        cout << "Is Account Valid? (y/n): ";
+        cin >> accValid;
+        if (accValid != 'y' && accValid != 'Y')
+        {
+            cout << "Account Invalid. Transaction Failed.\n";
+            flag = false;
+            continue;
+        }
+
+        return true;
+    }
+
+
+     
+}
+
+int main()
+{
+    cout << "Order placed By the client \n";
+    string Cardnumber;
+    cin >> Cardnumber;
     Verificationprocess();
+
+    if (Verificationprocess())
+    {
+
+        endProcess(Cardnumber, "SUCCESS");
+    }
+    else
+    {
+        endProcess(Cardnumber, "FAILED");
+    }
 }
