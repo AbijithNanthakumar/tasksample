@@ -18,7 +18,7 @@ void redirectSales();
 bool isTechnicalIssue();
 void redirectTechnical();
 
-// Step 3: Handle enquiries
+
 bool enquiries() {
     char ans;
     cout << "Do you have an enquiry? (y/n): ";
