@@ -45,5 +45,10 @@ int main() {
     }
     return 0;
 }
-
-
+void Inside() {
+    cout << "Do not open the door.\n";
+    cout << "Seal all cracks with a wet towel.\n";
+    cout << "Contact the fire department.\n";
+    cout << "Wave at the window to identify survivors.\n";
+    cout << "Wait for rescue.\n";
+}
