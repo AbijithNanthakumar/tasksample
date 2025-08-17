@@ -2,7 +2,36 @@
 #include<string>
 using namespace std;
 
+bool isFormat(char ch){
+    if(!isalpha(ch) && !isspace(ch)){
+        return false;
+    }
+    return true;
+}
+
+
+void process(){
+
+}
+
+
+void smokedetector(){
+    cout << "The smoke Detector detects the fire in the building" << endl;
+    cout << "The smoke detector triggers alarm" << endl;
+
+    process();
+}
+
+
 void firstmove(){
+   cout << "Is the fire in the building.? (y or n)" << endl;
+    
+   char ch;
+   cin >> ch;
+
+   if(!isFormat(ch)){
+       cout << "Enter the proper intput y or n" << endl; 
+   }
 
 }
 
@@ -33,5 +62,6 @@ int main(){
             
         default:
             cout << "No such option exists." << endl;
+            break;
     }
 }
