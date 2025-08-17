@@ -41,7 +41,7 @@ void Announcement(){
     }
     else{
        cout << "Passengers are requested to onboard. \n";
-        this_thread::sleep_for(chrono::seconds(5));
+        this_thread::sleep_for(chrono::minutes(5));
         cout << "Closing gate \n";
         return;
     }
