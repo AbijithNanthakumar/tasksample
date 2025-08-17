@@ -16,7 +16,7 @@ void sellershipping(){
 }
 
 void contactseller(const string &name){
-    cout << "Contacting seller to ship" << name << "to customer \n";
+    cout << "Contacting seller to ship " << name << " to customer \n";
 }
 
 void Warehousepacking(const string &name){
@@ -38,7 +38,7 @@ void processing(vector<Item>& items){
 
 
 void Order(vector<Item>& items) {
-    cout << "There are" << items.size() << " items ordered.\n";
+    cout << "There are " << items.size() << " items ordered.\n";
 }
 
 int main() {
