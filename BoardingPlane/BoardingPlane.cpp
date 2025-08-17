@@ -3,6 +3,8 @@
 #include <string>
 using namespace std;
 
+void PriorityBoard();
+
 bool isFormat(string str)
 {
     for (char ch : str)
@@ -23,8 +25,48 @@ string toLowercase(string str)
     return str;
 }
 
+void Announcement(){
+    
+}
+
+void Halfclass(){
+    cout << "Is this Half 1st class?.\n";
+    string isHalffirstclass;
+    getline(cin, isHalffirstclass);
+
+    if(!isFormat(isHalffirstclass)){
+        cout << "Enter the proper input y or n";
+        Halfclass();
+    }
+    if(toLowercase(isHalffirstclass)=="yes" || toLowercase(isHalffirstclass)=="y"){
+        cout << "All Passengers Board Plane";
+         Annoucement();
+    }
+    else{
+     PriorityBoard();
+    }
+}
+
+
 void PriorityBoard(){
     cout << "Starting priority boarding. \n";
+    cout << "Is this first class?.\n";
+    string isfirstclass;
+    getline(cin, isfirstclass);
+
+    if(!isFormat(isfirstclass)){
+        cout << "Enter the proper input y or n";
+        PriorityBoard();
+    }
+    if(toLowercase(isfirstclass)=="yes" || toLowercase(isfirstclass)=="y"){
+        cout << "Board Plane";
+        // Annoucement();
+    }
+    else{
+       Halfclass();
+    }
+     
+    
     
 }
 
