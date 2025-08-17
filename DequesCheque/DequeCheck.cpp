@@ -14,28 +14,43 @@ void inputProcess(string &senderAcc, string &receiverAcc, double &amount) {
 
     cout << "Cheque inserted into machine\n";
 
-    cout << "Enter Cheque Amount: ";
+    cout << "Enter Amount: \n";
     cin >> amount;
 
-    cout << "Enter Sender Account Number: ";
+    cout << "Enter Sender Account Number: \n";
     cin >> senderAcc;
 
-    cout << "\n--- Review Details ---\n";
-    cout << "Sender Account   : " << senderAcc << endl;
-    cout << "Receiver Account : " << receiverAcc << endl;
-    cout << "Amount           : " << amount << endl;
 }
 
+void transactionProcess(const string &senderAcc, const string &receiverAcc, double amount) {
+    cout << "\n verification  progress (7 days)...\n";
 
+    char reviewChoice;
+    cout << "Sender Review Completed? (y/n): ";
+    cin >> reviewChoice;
+    if(reviewChoice != 'y' && reviewChoice != 'Y') {
+        cout << "Invalid Transaction. Please try again later.\n";
+        return;
+    }
+
+    char authChoice;
+    cout << "Sender Authorized Transaction? (y/n): ";
+    cin >> authChoice;
+    if(authChoice == 'y' || authChoice == 'Y') {
+        cout << "\nMoney Transferred Successfully!\n";
+        cout << "Receiver: " << receiverAcc << ", Amount: " << amount << endl;
+    } else {
+        cout << "Invalid Transaction. Please try again later.\n";
+    }
+}
 int main(){
  
      string senderAcc, receiverAcc;
-    double amount = 0.0;
+     double amount = 0.0;
 
     inputProcess(senderAcc, receiverAcc, amount);
+    transactionProcess(senderAcc, receiverAcc, amount);
 
-
-    cout << "\n--- End of Process ---\n";
     return 0;
 
    
