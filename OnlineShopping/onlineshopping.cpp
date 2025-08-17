@@ -9,6 +9,10 @@ struct Item {
     bool inWarehouse;
 };
 
+void Order(vector<Item>& items) {
+    cout << "There are" << items.size() << " items ordered.\n";
+}
+
 int main() {
     vector<Item> items = {
         {"Sketcbook", true},
@@ -17,6 +21,7 @@ int main() {
         {"tablet", true}
     };
 
+    Order(items);
    
 }
 
