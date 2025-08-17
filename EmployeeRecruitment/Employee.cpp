@@ -12,13 +12,13 @@ void Interview(){
 }
 
 void Recruitment(){
-   cout << "Develop recruitment plan";
-   cout << "place advertisements";
-   cout << "Collect Application";
+   cout << "Develop recruitment plan.\n";
+   cout << "place advertisements.\n";
+   cout << "Collect Application.\n";
 }
 
 void Notselected(){
-   cout << "Candidate Not hired"
+   cout << "Candidate Not hired.\n";
 }
 
 void Selection(){
@@ -30,7 +30,7 @@ void Selection(){
 void process()
 {
     cout << "Send crew to request to HR.\n";
-    cout << "Determine classification";
+    cout << "Determine classification.\n";
 
     cout << "Is this a regular hiring process.(y or n)\n";
     char ch;
@@ -38,11 +38,11 @@ void process()
 
     if (tolower(ch) == 'y')
     {
-        cout << "Post job internally";
+        cout << "Post job internally.\n";
     }
     else
     {
-        cout << "special Hiring Process";
+        cout << "special Hiring Process.\n";
     }
 }
 int main()
@@ -73,7 +73,7 @@ int main()
         else
         {
             Recruitment();
-            cout << "Is he qualified?";
+            cout << "Is he qualified?.\n";
             char qualify;
             cin >> qualify;
 
@@ -92,7 +92,7 @@ int main()
         char ref;
         cin >> ref;
 
-        if(ref){
+        if(tolower(ref)=='y'){
             Selection();
         }
         else{
@@ -100,12 +100,12 @@ int main()
             return 0;
         }
 
-        cout << "Accepted Offer";
+        cout << "Accepted Offer.\n";
         char offer;
         cin >> offer;
 
-        if(offer){
-            cout << "Congratulations You are hired";
+        if(tolower(offer)=='y'){
+            cout << "Congratulations You are hired.\n";
             return 0;
         }
         else{
