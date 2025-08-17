@@ -11,26 +11,6 @@ bool isFormat(string str){
     }
     return true;
 }
-
-// Input:::: getting :::: block 
-bool yesOrNo(){
-    string input;
-    getline(cin,input );
-
-    bool flag;
-
-    if(!isFormat(input)){
-       cout << "Enter the proper input yes or no";
-       return false;        
-    }
-    if(toLowercase(input) == "yes" || toLowercase(input) == "y"){
-        return true;
-    }
-    else{
-        return false;
-    }
-}
-
 string toLowercase(string str){
     for(char &ch: str){
         ch = tolower(ch);
@@ -39,41 +19,25 @@ string toLowercase(string str){
 }
 
 void HighEnergy(){
-    string HighEnergy;
-    getline(cin,HighEnergy);
-
-    if(!isFormat(HighEnergy)){
-       cout << "Enter the proper input y or n \n";
-    }
-    if(toLowercase(HighEnergy)=="yes" || toLowercase(HighEnergy) == "y"){
-        cout << "This is a High energy source. Which means it is a BIO-FUEL. \n";
-    }
-    
+    string 
 }
 
 void WasteProcess(){
-    cout << "Is the waste organic? \n";
-    yesOrNo();
+    cout << "Is this a organic waste? \n";
+    string isorganic;
+    cin >> isorganic;
 
-    if(yesOrNo){
-        cout << "This is an organic waste? \n";
+    if(!isFormat(isorganic)){
+        cout << "Enter the proper input y or n \n";
     }
-    // string isorganic;
-    // getline(cin,isorganic);
-
-    // if(!isFormat(isorganic)){
-    //    cout << "Enter the proper input y or n \n";
-    // }
-    // if(toLowercase(isorganic)=="yes" || toLowercase(isorganic) == "y"){
-    //     cout << "This is Organic. Is this High enrgy waste? \n";
-
-    //     HighEnergy();
-    // }
-    // else{
-        
-    // }
-
-   
+    if(toLowercase(isorganic) == "yes" || toLowercase(isorganic) == "y"){
+        cout << "This is a organic waste. Is this a High energy waste? \n";
+        HighEnergy();
+    }
+    else{
+        cout << "This is not a organic waste. Is this Reuseable? \n"
+        Reuseable();
+    }
 }
 
 int main(){
