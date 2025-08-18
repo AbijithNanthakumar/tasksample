@@ -24,7 +24,7 @@ bool Verificationprocess()
         char cardValid;
         cout << "Is Card Valid? (y/n): ";
         cin >> cardValid;
-        if (cardValid != 'y' && cardValid != 'Y')
+        if (cardValid != 'y')
         {
             cout << "Card Invalid. Transaction Failed.\n";
             continue;
@@ -59,10 +59,9 @@ bool Verificationprocess()
 
         return true;
     }
-
-
-     
 }
+
+
 
 int main()
 {
@@ -73,7 +72,6 @@ int main()
 
     if (Verificationprocess())
     {
-
         endProcess(Cardnumber, "SUCCESS");
     }
     else

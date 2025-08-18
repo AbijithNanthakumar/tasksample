@@ -40,9 +40,11 @@ void login(string &password) {
 
     do {
         cout << "Enter password: ";
-        cin >> entered;
-        cin.ignore();
-        if (entered == password) {
+        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Clear buffer
+        getline(cin, entered); 
+        string enter = entered;
+        
+        if (enter == password) {
             cout << "Login successful\n";
             success = true;
         } else {
@@ -85,11 +87,10 @@ void newuser() {
     // Save user details into csv file
     saveUserToCSV(name, email, pass);
 
-    cout << "Registration Completed for " << name << ".\n";
+    cout << "Registration Completed ";
 
     cout << "Proceed to login\n";
-    string storedPass = pass;
-    login(storedPass);
+    login(pass);
 }
 
 void registeredusers() {
