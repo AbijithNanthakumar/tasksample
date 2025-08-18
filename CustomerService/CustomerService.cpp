@@ -4,19 +4,14 @@
 using namespace std;
 
 bool isNewIssue();
-void testIssue();
 bool simulateIssue();
 void getErrorDetails( string &desc) ;
 void writeToCSV( const string &desc);
-void errorAnalysis();
-void solveIssue();
 bool issueFixed();
 void confirmIssueFixed();
-void contactCustomerForInfo();
 bool isSalesIssue();
-void redirectSales();
 bool isTechnicalIssue();
-void redirectTechnical();
+
 
 
 bool enquiries() {
@@ -29,21 +24,21 @@ bool enquiries() {
 
 void unknownIssue() {
     if (isNewIssue()) {
-        testIssue();
+       cout << "Testing the issue...\n";
 
         if (simulateIssue()) {
             string desc;
             getErrorDetails( desc);
             writeToCSV(desc);
-            errorAnalysis();
-            solveIssue();
+            cout << "Performing error analysis...\n";
+            cout << "Solving the issue...\n";
             if (issueFixed()) {
                 cout << "Issue successfully resolved.\n";
             } else {
                 cout << "Issue unresolved, further investigation needed.\n";
             }
         } else {
-            contactCustomerForInfo();
+            cout << "Contacting customer for more information...\n";
         }
     } else {
         cout << "Resolving Unknown issue...\n";
@@ -65,9 +60,9 @@ void feedback() {
 
 void knownIssues() {
     if (isSalesIssue()) {
-        redirectSales();
+          cout << "Redirecting to Sales Support...\n";
     } else if (isTechnicalIssue()) {
-        redirectTechnical();
+        cout << "Redirecting to Technical Support...\n";
     } else {
         unknownIssue();
     }
@@ -75,6 +70,7 @@ void knownIssues() {
 
 void confirmIssueFixed() {
     cout << "Confirming issue fixed with customer...\n";
+    feedback();
 }
 
 bool isSalesIssue() {
@@ -93,15 +89,6 @@ bool isTechnicalIssue() {
     return (ans == 'y' || ans == 'Y');
 }
 
-void redirectSales() {
-    cout << "Redirecting to Sales Support...\n";
-}
-
-void redirectTechnical() {
-    cout << "Redirecting to Technical Support...\n";
-}
-
-
 
 bool isNewIssue() {
     char ans;
@@ -111,9 +98,7 @@ bool isNewIssue() {
     return (ans == 'y' || ans == 'Y');
 }
 
-void testIssue() {
-    cout << "Testing the issue...\n";
-}
+
 
 bool simulateIssue() {
     char ans;
@@ -122,11 +107,6 @@ bool simulateIssue() {
     cin.ignore();
     return (ans == 'y' || ans == 'Y');
 }
-
-void contactCustomerForInfo() {
-    cout << "Contacting customer for more information...\n";
-}
-
 
 void getErrorDetails( string &desc) {
     
@@ -146,13 +126,7 @@ void writeToCSV( const string &desc) {
     cout << " Error details saved to error.csv\n";
 }
 
-void errorAnalysis() {
-    cout << "Performing error analysis...\n";
-}
 
-void solveIssue() {
-    cout << "Solving the issue...\n";
-}
 
 bool issueFixed() {
     char ans;

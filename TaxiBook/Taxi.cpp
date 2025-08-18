@@ -36,6 +36,8 @@ void PickUp(){
             cout<<"\nWait for the next \n";
         }
     }while(pick!="yes");
+
+    
     pickup<<name<<","<<location<<","<<endl;
     cout<<"\nOrder is within the time range\n";
     pickup.close();
