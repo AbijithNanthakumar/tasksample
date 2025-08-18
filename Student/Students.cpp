@@ -84,6 +84,17 @@ void PaymentProcessing(Students& s){
     cout << "Payment completed.\n";
 }
 
+void Accomodation(Students& s) {
+    s.needsHousing = choice("Does the applicant need housing?");
+    if (s.needsHousing) {
+        s.housingDetails = getInput("Is Accomodatiio arrnged.\n");
+        cout << "Accomodation Provided" << s.housingDetails << "\n";
+    } else {
+        cout << "No Accomodation.\n";
+    }
+}
+
+
 void verification(Students& s) {
     cout << "Reviewing form for " << s.fullName << " (" << s.department << ")\n";
     do {
@@ -108,6 +119,7 @@ int main() {
     verification(stu);
     VisaProcessing(stu);
      PaymentProcessing(stu);
+     Accomodation(stu);
 
     return 0;
 }
