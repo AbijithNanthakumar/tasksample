@@ -14,7 +14,7 @@ string getInput(const string& message) {
 }
 
 
-void Admin() {
+void admin() {
     cout << "\n Admin Login \n";
     string password, correct = "111";
 
