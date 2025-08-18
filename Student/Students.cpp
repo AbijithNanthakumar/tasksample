@@ -27,10 +27,22 @@ struct Students {
 
 string getInput(const string& message) {
     cout << message;
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    
     string input;
     getline(cin, input);
     return input;
+}
+
+bool choice(const string& message) {
+    while (true) {
+        cout << message << " (y/n): ";
+        char response;
+        response = tolower(response);
+        if (response == 'y') 
+             return true;
+        if (response == 'n')
+             return false;
+    }
 }
 
 void fillForm(Students& s) {
@@ -40,16 +52,62 @@ void fillForm(Students& s) {
     if (s.department.empty()) {
          s.department = getInput("Enter the department: ");
     }
-        
-
     cout << "Form submitted to the respective department.\n";
 
+}
+
+void VisaProcessing(Students& s) {
+    s.requiresVisa = choice("Does the student need a visa?");
+    if (s.requiresVisa) {
+        cout << "Notify student to apply for visa.\n";
+        do {
+            s.visaSubmitted = choice("Has the visa been submitted?");
+            if (!s.visaSubmitted) 
+                cout << "Waiting for visa\n";
+        } while (!s.visaSubmitted);
+        cout << "Visa application received.\n";
+    } else {
+        cout << "Visa not required.\n";
+    }
+}
+
+
+void PaymentProcessing(Students& s){
+
+    do {
+        s.tuitionPaid = choice("Has the tuition fee been paid?");
+        if (!s.tuitionPaid) {
+        cout << "Awaiting payment.";
+
+        }
+    } while (!s.tuitionPaid);
+    cout << "Payment completed.\n";
+}
+
+void verification(Students& s) {
+    cout << "Reviewing form for " << s.fullName << " (" << s.department << ")\n";
+    do {
+        cout << "Verifying...\n";
+        s.isVerified = choice("Are the details correct?");
+        if (!s.isVerified) {
+            cout << "Please correct the form.\n";
+            if (choice("Edit name?")) {
+                s.fullName = getInput("New name: ");
+            }
+            if (choice("Edit department?")){
+                s.department = getInput("New department: ");
+            } 
+        }
+    } while (!s.isVerified);
 }
 
 int main() {
     Students stu;
 
     fillForm(stu);
+    verification(stu);
+    VisaProcessing(stu);
+     PaymentProcessing(stu);
 
     return 0;
 }
