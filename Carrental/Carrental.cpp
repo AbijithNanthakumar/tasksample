@@ -14,6 +14,27 @@ string getInput(const string& message) {
 }
 
 
+void Admin() {
+    cout << "\n Admin Login \n";
+    string password, correct = "111";
+
+    bool loggedIn = false;
+    do {
+        cout << "Admin password please: ";
+        cin >> password;
+        if (password == correct) {
+            cout << "Login successful\n";
+            loggedIn = true;
+        } else {
+            cout << "Login failed\n";
+        }
+    } while (!loggedIn);
+
+    ChooseApplication(); 
+}
+
+
+
 int main() {
     cout << "Car Rental System \n";
     cout << "User type? (1=Admin, 2=Registered User, 3=New User): ";
